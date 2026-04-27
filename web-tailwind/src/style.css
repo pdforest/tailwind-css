@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
+@theme {
+  --color-azul-claro: #37bcf9;
+  --color-azul-oscuro: #0370b9;
+
+
+  @keyframes spin-low {
+    to {
+    transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes from-below {
+    0%: {
+        transform: translateY(200%);
+        opacity: 0;
+    }
+    50%: {
+        transform: translateY(200%);
+        opacity: 0;
+    }
+    100%: {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+  }
+
+  --animate-spin-low: spin-low 2s linear infinite;
+  --animate-from-below: from-below 500ms linear;
+
+}
+
 @layer base {
 
     /*FUENTES*/
@@ -42,3 +74,9 @@
 
 }
 
+@layer components {
+
+    .menu-item{ @apply mr-5 ml-5 tracking-wider flex-none }
+
+    .menu-item-a { @apply block transition duration-200 hover:text-azul-claro transform hover:scale-125 }
+}
